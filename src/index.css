@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Questrial&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Font Family Mappings */
+  --font-sans: "Nunito Sans", "Nunito", sans-serif;
+  --font-serif: "Kumbh Sans", "Google Sans", sans-serif;
+  
+  /* Premium Corporate Light Theme (Blue-based) */
+  --color-navy: #0f2b5c;          /* Deep Corporate Blue */
+  --color-navy-light: #ffffff;    /* White for card backgrounds */
+  --color-accent: #2563eb;        /* Vivid Royal Blue */
+  --color-accent-hover: #1d4ed8;  
+  --color-warm-bg: #f8fafc;       /* Light steel slate background */
+  
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-650: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8fafc;        /* Clean light background */
+    color: #334155;                   /* Slate-700 for high-contrast body text */
+    overflow-x: hidden;
+  }
+  
+  /* Headings use the premium geometric Kumbh Sans / Google Sans */
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: var(--font-serif);
+    color: #0f172a;                   /* Slate-900 for headings */
+  }
+  
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Custom Keyframe Animations for infinite scroll marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
