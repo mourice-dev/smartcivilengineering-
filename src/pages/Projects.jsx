@@ -159,7 +159,7 @@ const Projects = () => {
       year: '2021',
       location: 'Kigarama, Kigali',
       model: 'Detailed Design & Structural Checks',
-      scope: 'Drafting columns layout, shear walls calculations, utility mapping, and submitting permit files to RDB registries.'
+      scope: 'Drafting columns layout, shear walls calculations, utility mapping, and submitting permit files to local construction registries.'
     },
     {
       id: 15,
@@ -280,37 +280,37 @@ const Projects = () => {
     : projectsList.filter(proj => proj.category === activeCategory);
 
   return (
-    <div className="pt-20 font-sans bg-warm-bg text-slate-700">
+    <div className="pt-16 font-sans bg-warm-bg text-slate-700">
       
       {/* Header (Keeps corporate blue theme) */}
-      <section className="bg-navy text-white py-20 md:py-28 relative overflow-hidden border-b border-white/5">
+      <section className="bg-navy text-white py-6 md:py-8 relative overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop')` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/40" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-accent text-[10px] font-sans font-black tracking-widest uppercase bg-accent/15 px-4 py-2 rounded-xl border border-accent/25">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+          <span className="text-accent text-[9px] font-sans font-black tracking-widest uppercase bg-accent/15 px-3 py-1 rounded-lg border border-accent/25">
             Portfolio
           </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-black tracking-tight uppercase leading-tight text-white">
+          <h1 className="text-lg md:text-xl font-serif font-black tracking-tight uppercase leading-tight text-white">
             Projects Delivered
           </h1>
-          <p className="text-slate-350 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-slate-350 text-[10px] max-w-2xl mx-auto leading-relaxed font-medium">
             A showcase of our completed projects demonstrating our engineering expertise across Rwanda.
           </p>
         </div>
       </section>
 
       {/* Filter Tabs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-        <div className="flex flex-wrap items-center justify-center gap-2 border-b border-slate-200/50 pb-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 border-b border-slate-200/50 pb-2">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2.5 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
+              className={`px-4 py-1.5 rounded-lg text-[9px] font-bold tracking-widest uppercase transition-all duration-200 ${
                 activeCategory === cat
-                  ? 'bg-accent text-white shadow-lg shadow-accent/20'
-                  : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/50 shadow-md'
+                  ? 'bg-accent text-white shadow-md shadow-accent/20'
+                  : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/50 shadow-sm'
               }`}
             >
               {cat}
@@ -320,51 +320,51 @@ const Projects = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-warm-bg">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 bg-warm-bg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className="group bg-white border border-slate-200/50 rounded-3xl overflow-hidden shadow-xl hover:border-accent/20 hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-300 cursor-pointer flex flex-col h-full"
+              className="group bg-white border border-slate-200/50 rounded-2xl overflow-hidden shadow-md hover:border-accent/20 hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-300 cursor-pointer flex flex-col h-full"
             >
               {/* Image Container */}
-              <div className="relative h-64 overflow-hidden bg-slate-100 shrink-0">
+              <div className="relative h-44 overflow-hidden bg-slate-100 shrink-0">
                 <img 
                   src={project.image} 
                   alt={project.title} 
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute top-4 left-4 bg-navy/90 backdrop-blur-sm px-3.5 py-1.5 rounded-lg text-white text-[9px] font-sans font-black tracking-widest uppercase">
+                <div className="absolute top-3 left-3 bg-navy/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-white text-[8px] font-sans font-black tracking-widest uppercase">
                   {project.category}
                 </div>
               </div>
               
               {/* Text Info */}
-              <div className="p-6 flex flex-col justify-between flex-grow">
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-[10px] text-slate-550 font-bold tracking-wider uppercase">
+              <div className="p-4 flex flex-col justify-between flex-grow">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-[9px] text-slate-550 font-bold tracking-wider uppercase">
                     <span className="flex items-center space-x-1">
-                      <MapPin className="h-3.5 w-3.5 text-accent" />
+                      <MapPin className="h-3 w-3 text-accent" />
                       <span>{project.location.split(',')[0]}</span>
                     </span>
                     <span className="flex items-center space-x-1">
-                      <Calendar className="h-3.5 w-3.5 text-accent" />
+                      <Calendar className="h-3 w-3 text-accent" />
                       <span>{project.year}</span>
                     </span>
                   </div>
                   
-                  <h3 className="text-navy font-serif font-black text-lg uppercase group-hover:text-accent transition-colors duration-250 leading-tight">
+                  <h3 className="text-navy font-serif font-black text-sm uppercase group-hover:text-accent transition-colors duration-250 leading-tight">
                     {project.title}
                   </h3>
                   
-                  <p className="text-slate-600 text-xs leading-relaxed font-medium line-clamp-2">
+                  <p className="text-slate-600 text-[10px] leading-relaxed font-medium line-clamp-2">
                     {project.desc}
                   </p>
                 </div>
                 
-                <div className="border-t border-slate-100 mt-5 pt-4 text-accent text-[10px] font-black tracking-widest uppercase flex items-center justify-between">
+                <div className="border-t border-slate-100 mt-3 pt-3 text-accent text-[9px] font-black tracking-widest uppercase flex items-center justify-between">
                   <span>View Details</span>
                   <span>→</span>
                 </div>
@@ -379,90 +379,90 @@ const Projects = () => {
         {selectedProject && (
           <div className="fixed inset-0 z-50 overflow-y-auto bg-navy/60 backdrop-blur-sm flex items-center justify-center p-4">
             <div 
-              className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row max-h-[90svh] overflow-y-auto lg:overflow-hidden border border-slate-200/50"
+              className="relative w-full max-w-2xl bg-white rounded-2xl overflow-hidden shadow-xl flex flex-col lg:flex-row max-h-[90svh] overflow-y-auto lg:overflow-hidden border border-slate-200/50"
               onClick={(e) => e.stopPropagation()}
             >
               
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-50 p-2.5 bg-navy/60 hover:bg-navy text-white rounded-xl transition-colors duration-150"
+                className="absolute top-3 right-3 z-50 p-2 bg-navy/60 hover:bg-navy text-white rounded-lg transition-colors duration-150"
                 aria-label="Close details"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
 
               {/* Image Column */}
-              <div className="w-full lg:w-1/2 h-72 lg:h-auto bg-slate-900 relative shrink-0">
+              <div className="w-full lg:w-1/2 h-48 lg:h-auto bg-slate-900 relative shrink-0">
                 <img 
                   src={selectedProject.image} 
                   alt={selectedProject.title} 
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent pointer-events-none" />
-                <div className="absolute bottom-6 left-6 text-white space-y-1">
-                  <span className="text-[9px] font-bold tracking-widest bg-accent text-white px-2.5 py-1 rounded-md uppercase font-sans">
+                <div className="absolute bottom-4 left-4 text-white space-y-0.5">
+                  <span className="text-[8px] font-bold tracking-widest bg-accent text-white px-2 py-0.5 rounded uppercase font-sans">
                     {selectedProject.category}
                   </span>
-                  <h2 className="text-2xl font-serif font-black uppercase tracking-tight mt-2 leading-tight text-white">
+                  <h2 className="text-sm font-black uppercase tracking-tight mt-1 leading-tight text-white">
                     {selectedProject.title}
                   </h2>
                 </div>
               </div>
 
               {/* Details Content Column */}
-              <div className="w-full lg:w-1/2 p-8 lg:p-12 overflow-y-auto space-y-6 text-slate-700">
+              <div className="w-full lg:w-1/2 p-5 lg:p-6 overflow-y-auto space-y-4 text-slate-700">
                 
                 {/* Meta details list */}
-                <div className="grid grid-cols-2 gap-5 border-b border-slate-100 pb-6 text-xs font-sans">
-                  <div className="space-y-1">
-                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[9px]">Execution Model</span>
+                <div className="grid grid-cols-2 gap-3 border-b border-slate-100 pb-4 text-[10px] font-sans">
+                  <div className="space-y-0.5">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[8px]">Execution Model</span>
                     <span className="block text-navy font-black leading-snug">
                       {selectedProject.model}
                     </span>
                   </div>
-                  <div className="space-y-1">
-                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[9px]">Standards Used</span>
-                    <span className="block text-navy font-black flex items-center space-x-1.5">
-                      <CheckCircle className="h-4 w-4 text-accent shrink-0" />
+                  <div className="space-y-0.5">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[8px]">Standards Used</span>
+                    <span className="block text-navy font-black flex items-center space-x-1">
+                      <CheckCircle className="h-3.5 w-3.5 text-accent shrink-0" />
                       <span>Rwandan & ISO</span>
                     </span>
                   </div>
-                  <div className="space-y-1 pt-1">
-                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[9px]">Location</span>
+                  <div className="space-y-0.5 pt-1">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[8px]">Location</span>
                     <span className="block text-navy font-black flex items-center space-x-1">
-                      <MapPin className="h-3.5 w-3.5 text-accent" />
+                      <MapPin className="h-3 w-3 text-accent" />
                       <span>{selectedProject.location}</span>
                     </span>
                   </div>
-                  <div className="space-y-1 pt-1">
-                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[9px]">Completion Year</span>
+                  <div className="space-y-0.5 pt-1">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[8px]">Completion Year</span>
                     <span className="block text-navy font-black flex items-center space-x-1">
-                      <Calendar className="h-3.5 w-3.5 text-accent" />
+                      <Calendar className="h-3 w-3 text-accent" />
                       <span>{selectedProject.year}</span>
                     </span>
                   </div>
                 </div>
 
                 {/* Scope of Work */}
-                <div className="space-y-3">
-                  <h3 className="text-navy font-serif font-black text-base uppercase tracking-wide flex items-center space-x-2">
-                    <Layers className="h-4.5 w-4.5 text-accent" />
+                <div className="space-y-2">
+                  <h3 className="text-navy font-sans font-bold text-xs uppercase tracking-wide flex items-center space-x-1.5">
+                    <Layers className="h-4 w-4 text-accent" />
                     <span>Scope & Technical Details</span>
                   </h3>
-                  <p className="text-slate-600 font-sans text-xs sm:text-sm leading-relaxed font-medium">
+                  <p className="text-slate-600 font-sans text-[10px] leading-relaxed font-medium">
                     {selectedProject.scope}
                   </p>
-                  <p className="text-slate-500 font-sans text-xs leading-relaxed pt-2 font-medium">
-                    As a high-impact engineering project delivered by Smart Civil Works Ltd, this building conforms strictly to the structural and civil parameters approved by RDB. The site management team implemented strict occupational hazard controls, concrete durability assays, and routine inspection audits throughout execution.
+                  <p className="text-slate-550 font-sans text-[10px] leading-relaxed pt-1 font-medium">
+                    As a high-impact engineering project delivered by Smart Civil Works Ltd, this building conforms strictly to local structural and civil parameters. The site management team implemented strict occupational hazard controls, concrete durability assays, and routine inspection audits throughout execution.
                   </p>
                 </div>
 
                 {/* Close modal */}
-                <div className="pt-4 font-sans">
+                <div className="pt-2 font-sans">
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="w-full py-3.5 bg-navy hover:bg-accent text-white hover:text-white text-xs font-black tracking-widest uppercase rounded-xl transition-all shadow-md"
+                    className="w-full py-2 bg-navy hover:bg-accent text-white hover:text-white text-[10px] font-black tracking-widest uppercase rounded-lg transition-all shadow-md"
                   >
                     Close Sheet
                   </button>

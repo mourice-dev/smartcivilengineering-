@@ -23,7 +23,7 @@ const Hero = () => {
       image: 'https://images.unsplash.com/photo-1590069261209-f8e9b8642343?q=80&w=1600&auto=format&fit=crop',
       title: 'Infrastructure & Project Management',
       subtitle: 'On Time. On Budget. Under Control.',
-      desc: 'With over 26+ key projects completed across Rwanda, our experienced supervision team guarantees flawless construction execution and RDB compliant audits.'
+      desc: 'With over 26+ key projects completed across Rwanda, our experienced supervision team guarantees flawless construction execution and high quality standards.'
     }
   ];
 
@@ -44,14 +44,14 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-[95svh] w-full bg-navy overflow-hidden flex items-center">
+    <div className="relative h-[85svh] w-full bg-slate-950 overflow-hidden flex items-center">
       {/* Background Images Crossfade */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
             initial={{ opacity: 0, scale: 1.06 }}
-            animate={{ opacity: 0.35, scale: 1 }}
+            animate={{ opacity: 0.85, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
             className="absolute inset-0 bg-cover bg-center"
@@ -60,8 +60,8 @@ const Hero = () => {
         </AnimatePresence>
         
         {/* Gradients Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-navy/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25 z-10" />
       </div>
 
       {/* Hero Content Container */}
@@ -74,9 +74,9 @@ const Hero = () => {
             transition={{ duration: 0.7 }}
             className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-accent/10 border border-accent/20 mb-6 shadow-md"
           >
-            <CheckCircle className="h-4 w-4 text-accent" />
-            <span className="text-accent font-sans text-[10px] font-black tracking-widest uppercase">
-              RDB Registered Since 2017
+            <CheckCircle className="h-3 w-3 text-accent" />
+            <span className="text-accent font-sans text-[9px] font-black tracking-widest uppercase">
+              Engineering & Consultancy
             </span>
           </motion.div>
 
@@ -90,15 +90,15 @@ const Hero = () => {
               transition={{ duration: 0.6, ease: 'easeOut' }}
               className="space-y-5"
             >
-              <span className="block text-accent font-sans text-xs sm:text-sm font-black tracking-widest uppercase">
+              <span className="block text-accent font-sans text-[10px] font-black tracking-widest uppercase">
                 {slides[currentSlide].subtitle}
               </span>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-sans font-black text-white leading-tight tracking-tight uppercase">
+              <h1 className="text-xl sm:text-2xl lg:text-4xl font-sans font-black text-white leading-tight tracking-tight uppercase">
                 {slides[currentSlide].title}
               </h1>
               
-              <p className="text-slate-350 font-sans text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed font-medium">
+              <p className="text-slate-350 font-sans text-xs sm:text-sm max-w-2xl leading-relaxed font-medium">
                 {slides[currentSlide].desc}
               </p>
             </motion.div>
@@ -113,14 +113,14 @@ const Hero = () => {
           >
             <NavLink
               to="/projects"
-              className="flex items-center space-x-2 px-8 py-4 bg-accent hover:bg-white text-navy text-xs font-black tracking-widest uppercase rounded-xl transition-all duration-300 shadow-xl shadow-accent/20 hover:scale-[1.03]"
+              className="flex items-center space-x-2 px-8 py-4 bg-accent hover:bg-white text-navy text-[10px] font-black tracking-widest uppercase rounded-xl transition-all duration-300 shadow-xl shadow-accent/20 hover:scale-[1.03]"
             >
               <span>Explore Projects</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-3.5 w-3.5" />
             </NavLink>
             <NavLink
               to="/contact"
-              className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white text-xs font-black tracking-widest uppercase rounded-xl border border-white/15 hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white text-[10px] font-black tracking-widest uppercase rounded-xl border border-white/15 hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             >
               Request Consultation
             </NavLink>
@@ -135,14 +135,14 @@ const Hero = () => {
           className="h-12 w-12 flex items-center justify-center bg-white/5 border border-white/5 text-slate-400 hover:text-white rounded-xl hover:bg-white/10 hover:border-white/10 transition-all duration-200"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-4 w-4" />
         </button>
         <button
           onClick={nextSlide}
           className="h-12 w-12 flex items-center justify-center bg-white/5 border border-white/5 text-slate-400 hover:text-white rounded-xl hover:bg-white/10 hover:border-white/10 transition-all duration-200"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4" />
         </button>
       </div>
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Hammer, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../images/civil-logo-small.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,35 +37,24 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-slate-200/40 transition-all duration-300 ${
-        scrolled ? 'shadow-md py-3' : 'shadow-sm py-5'
+        scrolled ? 'shadow-md py-0.5' : 'shadow-sm py-1'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           
-          {/* Logo Section */}
-          <NavLink to="/" className="flex items-center space-x-3 group">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent text-white transition-all duration-300 group-hover:scale-105 shadow-md shadow-accent/20">
-              <Hammer className="h-6 w-6" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-black text-xl leading-tight tracking-wide text-navy group-hover:text-accent transition-colors duration-300 uppercase">
-                Smart Civil
-              </span>
-              <span className="text-[10px] font-sans font-bold tracking-widest uppercase mt-0.5 text-slate-500">
-                Engineering Works Ltd
-              </span>
-            </div>
+          <NavLink to="/" className="flex items-center group">
+            <img src={logo} alt="Smart Civil Engineering Works Ltd Logo" className="h-[72px] w-auto object-contain transition-all duration-300 group-hover:scale-105" />
           </NavLink>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-1 font-sans">
+          <div className="hidden md:flex items-center space-x-6 font-sans">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
                 className={({ isActive }) =>
-                  `relative px-5 py-2 text-xs font-bold tracking-widest uppercase transition-colors duration-300 ${
+                  `relative px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase transition-colors duration-300 ${
                     isActive 
                       ? 'text-accent font-black' 
                       : 'text-slate-650 hover:text-navy'
@@ -77,7 +67,7 @@ const Navbar = () => {
                     {isActive && (
                       <motion.div
                         layoutId="activeNavIndicator"
-                        className="absolute bottom-0 left-5 right-5 h-[2px] bg-accent rounded-full"
+                        className="absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-accent rounded-full"
                         transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                       />
                     )}
@@ -89,10 +79,10 @@ const Navbar = () => {
             {/* Contact CTA */}
             <NavLink
               to="/contact"
-              className="ml-6 flex items-center space-x-2 px-5 py-3 text-[10px] font-black tracking-widest uppercase bg-accent hover:bg-navy text-white hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-accent/15 hover:scale-[1.02]"
+              className="ml-10 flex items-center space-x-2 px-4.5 py-2.5 text-[9px] font-black tracking-widest uppercase bg-accent hover:bg-navy text-white hover:text-white rounded-xl transition-all duration-300 shadow-md shadow-accent/15 hover:scale-[1.02]"
             >
               <Phone className="h-3.5 w-3.5" />
-              <span>Get in Touch</span>
+              <span>Contact us</span>
             </NavLink>
           </div>
 
@@ -137,10 +127,10 @@ const Navbar = () => {
               ))}
               <NavLink
                 to="/contact"
-                className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-4 bg-accent text-white font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-navy transition-all shadow-lg shadow-accent/20"
+                className="flex items-center justify-center space-x-2 w-full mt-6 px-4 py-3 bg-accent text-white font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-navy transition-all shadow-lg shadow-accent/20"
               >
                 <Phone className="h-4 w-4" />
-                <span>Get in Touch</span>
+                <span>Contact us</span>
               </NavLink>
             </div>
           </motion.div>

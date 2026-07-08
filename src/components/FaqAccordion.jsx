@@ -7,8 +7,8 @@ const FaqAccordion = () => {
 
   const faqs = [
     {
-      question: 'Is Smart Civil Works Ltd fully licensed by RDB?',
-      answer: 'Yes, Smart Civil Engineering Works Limited is a legally registered private company (RDB Company Code: 107429046) fully compliant with the laws governing companies in Rwanda since September 2017.'
+      question: 'Is Smart Civil Works Ltd fully licensed and registered?',
+      answer: 'Yes, Smart Civil Engineering Works Limited is a legally registered private company fully compliant with the laws governing companies and construction in Rwanda since September 2017.'
     },
     {
       question: 'What is included in your Engineering Studies package?',
@@ -16,7 +16,7 @@ const FaqAccordion = () => {
     },
     {
       question: 'How do you coordinate building permits in Kigali?',
-      answer: 'We compile all required structural calculations, architectural floor layouts, MEP plumbing/electrical drawings, and environmental impact assessments, then coordinate with RDB and local district authorities to secure construction permits.'
+      answer: 'We compile all required structural calculations, architectural floor layouts, MEP plumbing/electrical drawings, and environmental impact assessments, then coordinate with municipal and local district authorities to secure construction permits.'
     },
     {
       question: 'Do you offer structural audits for existing buildings?',

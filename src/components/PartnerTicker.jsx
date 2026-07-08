@@ -3,7 +3,7 @@ import React from 'react';
 const PartnerTicker = () => {
   const partners = [
     { name: 'RDIS Muhanga', type: 'Diocese Partnership' },
-    { name: 'RDB Rwanda', type: 'Registrar Board' },
+    { name: 'Kigali City', type: 'Public Works' },
     { name: 'TVET Muyumbu', type: 'Educational Center' },
     { name: 'Kicukiro District', type: 'Municipality' },
     { name: 'Sentabyo Commercial', type: 'Private Developer' },
