@@ -72,14 +72,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-accent/10 border border-accent/20 mb-6 shadow-md"
+            className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-accent/15 border border-accent/30 mb-6 shadow-md"
           >
-            <CheckCircle className="h-3 w-3 text-accent" />
-            <span className="text-accent font-sans text-[9px] font-black tracking-widest uppercase">
+            <CheckCircle className="h-3.5 w-3.5 text-accent" />
+            <span className="text-accent font-sans text-[10px] sm:text-xs font-bold tracking-widest uppercase">
               Engineering & Consultancy
             </span>
           </motion.div>
-
+ 
           {/* Animated Slide Content */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -88,22 +88,22 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="space-y-5"
+              className="space-y-6"
             >
-              <span className="block text-accent font-sans text-[10px] font-black tracking-widest uppercase">
+              <span className="block text-accent font-sans text-xs sm:text-sm font-bold tracking-widest uppercase">
                 {slides[currentSlide].subtitle}
               </span>
               
-              <h1 className="text-xl sm:text-2xl lg:text-4xl font-sans font-black text-white leading-tight tracking-tight uppercase">
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-sans font-black text-white leading-tight tracking-tight uppercase">
                 {slides[currentSlide].title}
               </h1>
               
-              <p className="text-slate-350 font-sans text-xs sm:text-sm max-w-2xl leading-relaxed font-medium">
+              <p className="text-slate-200 font-sans text-sm sm:text-base max-w-2xl leading-relaxed font-medium">
                 {slides[currentSlide].desc}
               </p>
             </motion.div>
           </AnimatePresence>
-
+ 
           {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -113,14 +113,14 @@ const Hero = () => {
           >
             <NavLink
               to="/projects"
-              className="flex items-center space-x-2 px-8 py-4 bg-accent hover:bg-white text-navy text-[10px] font-black tracking-widest uppercase rounded-xl transition-all duration-300 shadow-xl shadow-accent/20 hover:scale-[1.03]"
+              className="flex items-center space-x-2 px-8 py-3.5 bg-accent hover:bg-white text-navy hover:text-navy text-xs font-bold tracking-widest uppercase rounded-full transition-all duration-300 shadow-xl shadow-accent/20 hover:scale-[1.02]"
             >
               <span>Explore Projects</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-4 w-4" />
             </NavLink>
             <NavLink
               to="/contact"
-              className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white text-[10px] font-black tracking-widest uppercase rounded-xl border border-white/15 hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+              className="px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white text-xs font-bold tracking-widest uppercase rounded-full border border-white/15 hover:border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02]"
             >
               Request Consultation
             </NavLink>

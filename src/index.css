@@ -6,11 +6,11 @@
   --font-sans: "Nunito Sans", "Nunito", sans-serif;
   --font-serif: "Kumbh Sans", "Google Sans", sans-serif;
   
-  /* Premium Corporate Light Theme (Blue-based) */
-  --color-navy: #0f2b5c;          /* Deep Corporate Blue */
+  /* Premium Corporate Light Theme (Vibrant Red-Orange & Slate Navy) */
+  --color-navy: #0c1424;          /* Deep Charcoal Slate Navy */
   --color-navy-light: #ffffff;    /* White for card backgrounds */
-  --color-accent: #2563eb;        /* Vivid Royal Blue */
-  --color-accent-hover: #1d4ed8;  
+  --color-accent: #e03610;        /* Vibrant Red-Orange Accent */
+  --color-accent-hover: #b52807;  /* Darker Vibrant Red-Orange */
   --color-warm-bg: #f8fafc;       /* Light steel slate background */
   
   --color-slate-50: #f8fafc;

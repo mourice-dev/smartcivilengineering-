@@ -52,26 +52,26 @@ const CostCalculator = () => {
   }, [projectType, scale, terrain]);
 
   return (
-    <div className="bg-white border border-slate-200/50 rounded-2xl p-4 md:p-6 shadow-lg max-w-3xl mx-auto font-sans text-slate-650">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+    <div className="bg-white border border-slate-200/50 rounded-3xl p-6 md:p-10 shadow-2xl max-w-3xl mx-auto font-sans text-slate-650">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         {/* Left Side: Inputs */}
-        <div className="lg:col-span-6 space-y-4">
-          <div className="space-y-1.5">
-            <h3 className="text-sm font-display font-black text-navy uppercase tracking-wide flex items-center space-x-2">
-              <Calculator className="h-4.5 w-4.5 text-accent" />
+        <div className="lg:col-span-6 space-y-6">
+          <div className="space-y-2">
+            <h3 className="text-base font-display font-black text-navy uppercase tracking-wide flex items-center space-x-2">
+              <Calculator className="h-5 w-5 text-accent" />
               <span>Project Cost Estimator</span>
             </h3>
-            <p className="text-slate-500 text-[10px] font-medium leading-relaxed">
+            <p className="text-slate-500 text-xs font-medium leading-relaxed">
               Input your planned construction parameters to receive an instantly calculated fee proposal estimate for our design and engineering consultancy services.
             </p>
           </div>
  
-          <div className="space-y-3 text-[10px] font-semibold">
+          <div className="space-y-4 text-xs font-semibold">
             {/* Project Type */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <label className="text-slate-500 uppercase tracking-wider text-[9px]">Construction Type</label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 {[
                   { id: 'residential', label: 'Residential House' },
                   { id: 'commercial', label: 'Commercial Block' },
@@ -82,7 +82,7 @@ const CostCalculator = () => {
                     key={type.id}
                     type="button"
                     onClick={() => setProjectType(type.id)}
-                    className={`py-2 px-2.5 rounded-lg border text-center transition-all ${
+                    className={`py-3 px-4 rounded-full border text-center transition-all duration-200 text-xs ${
                       projectType === type.id
                         ? 'border-accent bg-accent/5 text-accent font-black shadow-md'
                         : 'border-slate-200/60 bg-slate-50 text-slate-600 hover:bg-slate-100'
@@ -95,8 +95,8 @@ const CostCalculator = () => {
             </div>
  
             {/* Sizing scale slider */}
-            <div className="space-y-1.5">
-              <div className="flex justify-between items-center text-[10px]">
+            <div className="space-y-2">
+              <div className="flex justify-between items-center text-xs">
                 <label className="text-slate-500 uppercase tracking-wider text-[9px]">Estimated Area</label>
                 <span className="text-accent font-black">{scale} SQM</span>
               </div>
@@ -107,14 +107,14 @@ const CostCalculator = () => {
                 step="25"
                 value={scale}
                 onChange={(e) => setScale(Number(e.target.value))}
-                className="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent"
+                className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent"
               />
             </div>
  
             {/* Terrain Slope */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <label className="text-slate-500 uppercase tracking-wider text-[9px]">Terrain Slope Profile</label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-3">
                 {[
                   { id: 'flat', label: 'Flat (< 5°)' },
                   { id: 'moderate', label: 'Moderate (5-15°)' },
@@ -124,7 +124,7 @@ const CostCalculator = () => {
                     key={slope.id}
                     type="button"
                     onClick={() => setTerrain(slope.id)}
-                    className={`py-2 px-1 rounded-lg border text-center transition-all ${
+                    className={`py-3 px-2.5 rounded-full border text-center transition-all duration-200 text-xs ${
                       terrain === slope.id
                         ? 'border-accent bg-accent/5 text-accent font-black shadow-md'
                         : 'border-slate-200/60 bg-slate-50 text-slate-600 hover:bg-slate-100'
@@ -140,45 +140,45 @@ const CostCalculator = () => {
         </div>
  
         {/* Right Side: Estimated Outputs */}
-        <div className="lg:col-span-6 bg-navy text-white p-4 md:p-5 rounded-xl relative overflow-hidden shadow-xl border border-white/5">
+        <div className="lg:col-span-6 bg-navy text-white p-6 md:p-8 rounded-2xl relative overflow-hidden shadow-2xl border border-white/5">
           <div className="absolute top-0 right-0 h-28 w-28 bg-accent/10 rounded-full filter blur-xl pointer-events-none" />
           
-          <h4 className="text-slate-350 font-bold tracking-wider uppercase text-[8px] mb-3">Estimated Fees Breakdown</h4>
+          <h4 className="text-slate-350 font-bold tracking-wider uppercase text-xs mb-4">Estimated Fees Breakdown</h4>
           
-          <div className="space-y-3 text-[10px] font-semibold">
+          <div className="space-y-4 text-xs sm:text-sm font-semibold">
             {/* Studies */}
-            <div className="flex justify-between items-center py-2 border-b border-white/10">
+            <div className="flex justify-between items-center py-2.5 border-b border-white/10">
               <span className="text-slate-300">Engineering Studies (15%):</span>
               <span className="text-slate-100 font-bold">${estimates.studies.toLocaleString()}</span>
             </div>
             
             {/* Architecture */}
-            <div className="flex justify-between items-center py-2 border-b border-white/10">
+            <div className="flex justify-between items-center py-2.5 border-b border-white/10">
               <span className="text-slate-300">Architectural & 3D Drafting (35%):</span>
               <span className="text-slate-100 font-bold">${estimates.architectural.toLocaleString()}</span>
             </div>
             
             {/* Structural */}
-            <div className="flex justify-between items-center py-2 border-b border-white/10">
+            <div className="flex justify-between items-center py-2.5 border-b border-white/10">
               <span className="text-slate-300">Structural Calculations (30%):</span>
               <span className="text-slate-100 font-bold">${estimates.structural.toLocaleString()}</span>
             </div>
             
             {/* Supervision */}
-            <div className="flex justify-between items-center py-2 border-b border-white/10">
+            <div className="flex justify-between items-center py-2.5 border-b border-white/10">
               <span className="text-slate-300">QA/QC Supervision & Safety (20%):</span>
               <span className="text-slate-100 font-bold">${estimates.supervision.toLocaleString()}</span>
             </div>
  
             {/* Total Fee Proposal */}
-            <div className="flex justify-between items-center pt-3 text-xs border-t border-accent/30">
-              <span className="text-accent uppercase tracking-wider font-black">Estimated Consultancy:</span>
-              <span className="text-white font-serif font-black text-base sm:text-lg">${estimates.total.toLocaleString()}</span>
+            <div className="flex justify-between items-center pt-4 border-t border-accent/30">
+              <span className="text-accent uppercase tracking-wider font-black text-xs">Estimated Consultancy:</span>
+              <span className="text-white font-serif font-black text-lg sm:text-xl">${estimates.total.toLocaleString()}</span>
             </div>
           </div>
  
-          <div className="mt-4 flex items-start space-x-1.5 text-[9px] text-slate-400 leading-normal font-medium">
-            <CheckCircle2 className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+          <div className="mt-6 flex items-start space-x-2 text-[9px] text-slate-400 leading-normal font-medium">
+            <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" />
             <span>Note: This is a planning estimate. Standard municipality stamps and soil lab core crashing fees are calculated separately.</span>
           </div>
         </div>

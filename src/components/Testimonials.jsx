@@ -35,17 +35,17 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white border border-slate-200/50 p-5 md:p-6 rounded-2xl shadow-md relative font-sans text-slate-600">
-      <div className="absolute top-4 left-4 text-accent/5 pointer-events-none">
-        <Quote className="h-10 w-10 transform -rotate-180" />
+    <div className="max-w-4xl mx-auto bg-white border border-slate-200/50 p-8 md:p-12 rounded-3xl shadow-xl relative font-sans text-slate-600">
+      <div className="absolute top-6 left-6 text-accent/5 pointer-events-none">
+        <Quote className="h-14 w-14 transform -rotate-180" />
       </div>
 
-      <div className="relative z-10 text-center space-y-4">
+      <div className="relative z-10 text-center space-y-6">
         
         {/* Rating Stars */}
-        <div className="flex justify-center space-x-0.5">
+        <div className="flex justify-center space-x-1">
           {[...Array(reviews[currentIndex].rating)].map((_, i) => (
-            <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
+            <Star key={i} className="h-4 w-4 fill-accent text-accent" />
           ))}
         </div>
 
@@ -57,37 +57,37 @@ const Testimonials = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="text-slate-700 font-serif italic text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto font-medium"
+            className="text-slate-700 font-serif italic text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-medium"
           >
             “{reviews[currentIndex].quote}”
           </motion.p>
         </AnimatePresence>
 
         {/* Divider line */}
-        <div className="w-8 h-0.5 bg-accent/40 mx-auto"></div>
+        <div className="w-10 h-0.5 bg-accent/40 mx-auto"></div>
 
         {/* Reviewer Details */}
-        <div className="space-y-0.5">
-          <h4 className="font-display font-black text-xs uppercase text-navy tracking-wide">
+        <div className="space-y-1">
+          <h4 className="font-display font-black text-sm uppercase text-navy tracking-wide">
             {reviews[currentIndex].author}
           </h4>
-          <span className="text-[9px] text-slate-450 font-bold uppercase tracking-wider">
+          <span className="text-xs text-slate-450 font-bold uppercase tracking-wider">
             {reviews[currentIndex].position}
           </span>
         </div>
 
         {/* Navigation Slider arrows */}
-        <div className="flex justify-center space-x-2 pt-2">
+        <div className="flex justify-center space-x-3 pt-4">
           <button
             onClick={prevReview}
-            className="h-8 w-8 flex items-center justify-center bg-slate-50 border border-slate-200/50 hover:bg-accent hover:text-white text-slate-650 rounded-lg transition-all duration-200 focus:outline-none"
+            className="h-10 w-10 flex items-center justify-center bg-slate-50 border border-slate-200/50 hover:bg-accent hover:text-white text-slate-650 rounded-full transition-all duration-200 focus:outline-none shadow-sm"
             aria-label="Previous review"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={nextReview}
-            className="h-8 w-8 flex items-center justify-center bg-slate-50 border border-slate-200/50 hover:bg-accent hover:text-white text-slate-650 rounded-lg transition-all duration-200 focus:outline-none"
+            className="h-10 w-10 flex items-center justify-center bg-slate-50 border border-slate-200/50 hover:bg-accent hover:text-white text-slate-655 rounded-full transition-all duration-200 focus:outline-none shadow-sm"
             aria-label="Next review"
           >
             <ChevronRight className="h-4 w-4" />
