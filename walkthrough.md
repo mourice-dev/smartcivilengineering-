@@ -44,6 +44,12 @@ Here is a summary of the layout, typography, and styling updates implemented acr
 - **Contact Details & Map** ([Contact.jsx](file:///c:/Users/nshut/OneDrive/Attachments/Documents/smartcivilengineering/src/pages/Contact.jsx)):
   - Redesigned input field layouts, sizes, and borders.
   - Updated map display border radius and contact cards.
+  - **Integrated Web3Forms REST API** to replace the mocked 1.5s delay with a real form-to-email service using fetch and environment variables.
+  - **Added error status container** for clear UI error messaging on API or network failures.
+  - **Implemented client-side honeypot spam protection** to intercept and drop bot submissions before making API requests.
+- **Git & Environment Security** ([.gitignore](file:///c:/Users/nshut/OneDrive/Attachments/Documents/smartcivilengineering/.gitignore) and [.env.example](file:///c:/Users/nshut/OneDrive/Attachments/Documents/smartcivilengineering/.env.example)):
+  - Added security rules in gitignore to prevent committing confidential `.env` profiles.
+  - Provided a standard `.env.example` file to template the API credentials.
 - **Footer Section** ([Footer.jsx](file:///c:/Users/nshut/OneDrive/Attachments/Documents/smartcivilengineering/src/components/Footer.jsx)):
   - Standardized link columns list spacing and text sizes.
   - Redesigned scroll-to-top button to a circular shape.
@@ -54,10 +60,12 @@ Here is a summary of the layout, typography, and styling updates implemented acr
 
 - **Build Check**: Ran `npm run build` which built successfully with zero errors:
   ```bash
-  dist/index.html                                0.79 kB
-  dist/assets/civil-logo-big-B6dWqU_S.png    2,120.16 kB
-  dist/assets/civil-logo-small-U-wPRV0S.png  2,140.16 kB
-  dist/assets/index-Csuz-TEJ.css                49.95 kB
-  dist/assets/index-DZeHazVv.js                461.61 kB
-  ✓ built in 560ms
+  dist/index.html                                          0.89 kB
+  dist/assets/civil-logo-small-whiteback-CoLeyfqx.png    703.98 kB
+  dist/assets/civil-logo-big-B6dWqU_S.png              2,120.16 kB
+  dist/assets/civil-logo-small-U-wPRV0S.png            2,140.16 kB
+  dist/assets/index-2vAg28ES.css                          51.25 kB
+  dist/assets/index-CQedecXS.js                          462.36 kB
+  ✓ built in 569ms
   ```
+
