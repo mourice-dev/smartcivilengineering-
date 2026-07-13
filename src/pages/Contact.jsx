@@ -249,6 +249,8 @@ const Contact = () => {
                 onChange={(e) => setBotcheck(e.target.checked)} 
                 className="hidden" 
                 style={{ display: 'none' }} 
+                tabIndex={-1}
+                autoComplete="off"
               />
 
               {/* Form Status Messages */}
