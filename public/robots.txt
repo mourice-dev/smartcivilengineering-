@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smartcivilengineeringworks.rw/sitemap.xml
+Sitemap: https://www.smartcivilengineeringworks.rw/sitemap.xml
