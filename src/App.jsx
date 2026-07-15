@@ -8,6 +8,15 @@ import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 
+// New Pages
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
+import NotFound from './pages/NotFound';
+
+// New Components
+import CookieConsent from './components/CookieConsent';
+
 // ScrollToTop behavior on page transition
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,12 +45,23 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            
+            {/* Legal pages */}
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/cookies" element={<CookiePolicy />} />
+            
+            {/* Wildcard 404 handler */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
         {/* Footer */}
         <Footer />
         
+        {/* Cookie consent overlay banner */}
+        <CookieConsent />
+
       </div>
     </Router>
   );

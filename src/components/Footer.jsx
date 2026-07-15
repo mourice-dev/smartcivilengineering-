@@ -3,6 +3,22 @@ import { NavLink } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, ArrowUp } from 'lucide-react';
 import logo from '../images/civil-logo-big.png';
 
+// Custom X (formerly Twitter) SVG Icon
+const XIcon = () => (
+  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
+
+// Custom Instagram SVG Icon
+const InstagramIcon = () => (
+  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -17,8 +33,8 @@ const Footer = () => {
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
  
-          {/* Company Brief Info */}
-          <div className="flex flex-col space-y-4">
+          {/* Company Brief Info & Social Links */}
+          <div className="flex flex-col space-y-5">
             <div className="flex items-center">
               <img src={logo} alt="Smart Civil Engineering Works Ltd Logo" className="h-20 w-auto object-contain" />
             </div>
@@ -27,6 +43,35 @@ const Footer = () => {
               Delivering complete engineering, architectural, and project management solutions in Rwanda since 2017. Committed to premium quality and structural durability from concept to completion.
             </p>
  
+            {/* Social Media Links */}
+            <div className="flex items-center space-x-3.5">
+              <a
+                href="https://x.com/smartcivileng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 border border-white/5 hover:border-accent hover:bg-accent/10 text-slate-400 hover:text-accent transition-all duration-200"
+                aria-label="Follow us on X (Twitter)"
+              >
+                <XIcon />
+              </a>
+              <a
+                href="https://www.instagram.com/smartcivilengineeringworks?igsh=MWR2NjhwbmpnYW96bA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 border border-white/5 hover:border-accent hover:bg-accent/10 text-slate-400 hover:text-accent transition-all duration-200"
+                aria-label="Follow us on Instagram"
+              >
+                <InstagramIcon />
+              </a>
+              <a
+                href="mailto:smartcivilengineeringworks@gmail.com"
+                className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/5 border border-white/5 hover:border-accent hover:bg-accent/10 text-slate-400 hover:text-accent transition-all duration-200"
+                aria-label="Send us an Email"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
+            </div>
+
             <div className="text-[10px] text-slate-500 font-bold tracking-wider uppercase">
               Licensed Engineering Consultancy
             </div>
@@ -118,8 +163,15 @@ const Footer = () => {
  
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-4 sm:space-y-0 font-medium">
-          <div>
-            © {currentYear} Smart Civil Engineering Works Ltd.
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
+            <span>© {currentYear} Smart Civil Engineering Works Ltd.</span>
+            <div className="flex space-x-3 text-[10px] uppercase font-bold tracking-wider">
+              <NavLink to="/privacy" className="hover:text-accent transition-colors">Privacy</NavLink>
+              <span className="text-white/10">|</span>
+              <NavLink to="/terms" className="hover:text-accent transition-colors">Terms</NavLink>
+              <span className="text-white/10">|</span>
+              <NavLink to="/cookies" className="hover:text-accent transition-colors">Cookies</NavLink>
+            </div>
           </div>
  
           <div className="flex items-center space-x-4">

@@ -10,6 +10,21 @@ import {
   AlertCircle
 } from 'lucide-react';
 
+const XIcon = () => (
+  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
+
+const InstagramIcon = () => (
+  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -227,6 +242,31 @@ const Contact = () => {
                     <span>Saturday: 9:00 AM - 1:00 PM</span>
                     <span className="text-slate-450 font-semibold">Sunday: Closed</span>
                   </div>
+                </div>
+              </div>
+
+              {/* Social Connect card */}
+              <div className="bg-white border border-slate-200/50 p-5 md:p-6 rounded-2xl flex flex-col space-y-3.5 shadow-md hover:border-accent/10 transition-all duration-300">
+                <span className="text-slate-500 text-[10px] font-bold tracking-wider uppercase block">Follow Our Works</span>
+                <div className="flex items-center space-x-3.5">
+                  <a
+                    href="https://x.com/smartcivileng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-50 hover:bg-accent hover:text-white border border-slate-200/50 transition-all text-xs font-bold text-navy"
+                  >
+                    <XIcon />
+                    <span>smartcivileng</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/smartcivilengineeringworks?igsh=MWR2NjhwbmpnYW96bA=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-50 hover:bg-accent hover:text-white border border-slate-200/50 transition-all text-xs font-bold text-navy"
+                  >
+                    <InstagramIcon />
+                    <span>Instagram</span>
+                  </a>
                 </div>
               </div>
 

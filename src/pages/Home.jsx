@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import Hero from '../components/Hero';
+import { projectsList } from '../data/projectsData';
 import ServiceCard from '../components/ServiceCard';
 import PartnerTicker from '../components/PartnerTicker';
 import CostCalculator from '../components/CostCalculator';
@@ -260,22 +261,10 @@ const Home = () => {
         {/* 3 Featured Projects preview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            {
-              title: 'RDIS Muhanga Office',
-              category: 'Commercial / Office Building',
-              image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop'
-            },
-            {
-              title: 'Muyumbu TVET',
-              category: 'Educational Infrastructure',
-              image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop'
-            },
-            {
-              title: 'G+1 Residential Houses (Rebero)',
-              category: 'Residential Development',
-              image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop'
-            }
-          ].map((project, idx) => (
+            projectsList.find(p => p.id === 1),
+            projectsList.find(p => p.id === 3),
+            projectsList.find(p => p.id === 7)
+          ].filter(Boolean).map((project, idx) => (
             <motion.div
               key={idx}
               whileHover={{ y: -6 }}

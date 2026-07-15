@@ -11,102 +11,31 @@ import {
   HelpCircle
 } from 'lucide-react';
 import FaqAccordion from '../components/FaqAccordion';
+import { serviceCategories } from '../data/servicesData';
+import { projectsList } from '../data/projectsData';
+
+const iconMap = {
+  Compass,
+  Building2,
+  Route,
+  Boxes,
+  ClipboardCheck,
+  HardHat
+};
 
 const Services = () => {
-  const serviceCategories = [
-    {
-      id: 'studies',
-      title: 'Engineering Studies & Investigations',
-      icon: Compass,
-      desc: 'Critical pre-construction studies to assess soil properties, land topography, and compile engineering reports for safe project planning.',
-      items: [
-        { name: 'Feasibility Studies', details: 'Economic and technical evaluation to determine the viability of infrastructure plans.' },
-        { name: 'Topographical Surveys', details: 'High-precision site mapping and contours modeling using modern electronic surveying gear.' },
-        { name: 'Site & Geotechnical Investigations', details: 'Drilling and logging to map subsurface lithology and load-bearing capacities.' },
-        { name: 'Soil Testing and Analysis', details: 'Laboratory testing of soil shear strength, plasticity index, moisture density relations.' },
-        { name: 'Technical Due Diligence', details: 'Comprehensive evaluation of existing structural safety and geological risks.' },
-        { name: 'Engineering Assessments', details: 'Structural calculations and drainage assessments for new developments.' }
-      ]
-    },
-    {
-      id: 'architectural',
-      title: 'Architectural Services',
-      icon: Building2,
-      desc: 'Creative space designs paired with professional blueprints, interior plans, permit files, and premium 3D visualizations.',
-      items: [
-        { name: 'Architectural Concept Design', details: 'Drafting floor layouts, spacing relations, and initial exterior silhouettes.' },
-        { name: 'Detailed Architectural Design', details: 'Drafting building sections, elevations, doors/windows schedules, and construction schedules.' },
-        { name: 'Interior Space Planning', details: 'Optimizing interior rooms layout, material textures mapping, lighting design.' },
-        { name: 'Permit Documentation', details: 'Compiling files and stamps to comply with local municipality zoning and building guidelines.' },
-        { name: '3D Visualization & Rendering', details: 'Creating photorealistic exterior and interior perspective pictures for marketing.' },
-        { name: 'Construction Documentation', details: 'Developing detailed architectural specs and material notes for contractors.' }
-      ]
-    },
-    {
-      id: 'civil',
-      title: 'Civil & Infrastructure Engineering',
-      icon: Route,
-      desc: 'Planning and engineering core municipal infrastructure systems, water lines, storm drainage, and road networks.',
-      items: [
-        { name: 'Road Engineering', details: 'Design of flexible and rigid pavements, horizontal alignment geometries, street details.' },
-        { name: 'Drainage & Stormwater Management', details: 'Hydrological design of storm drains, channels, retention basins, and culverts.' },
-        { name: 'Water Supply Systems', details: 'Hydraulic modeling of supply mains, pumping stations, distribution pipelines, reservoirs.' },
-        { name: 'Sewerage & Wastewater Systems', details: 'Sizing gravity collectors, manholes, lift stations, and basic municipal sewer grids.' }
-      ]
-    },
-    {
-      id: 'structural',
-      title: 'Structural Engineering',
-      icon: Boxes,
-      desc: 'Precision calculations and drafting for structural frames, concrete foundations, heavy steel structures, and structural audits.',
-      items: [
-        { name: 'Reinforced Concrete Structures', details: 'Designing structural columns, flat slabs, beams, retaining walls, shear cores.' },
-        { name: 'Steel Structures', details: 'Engineering steel roof trusses, gantries, industrial warehouses, connections design.' },
-        { name: 'Foundation Engineering', details: 'Sizing strip foundations, combined footings, pile caps, and ground slab supports.' },
-        { name: 'Industrial Structures', details: 'Structural layouts for process plants, equipment support plinths, silo bases.' },
-        { name: 'Water Tanks & Reservoirs', details: 'Hydrodynamic calculations for underground, ground-level, and elevated water tanks.' },
-        { name: 'Structural Audits & Rehabilitation', details: 'Ultrasonic concrete scanning, rebound hammer tests, load capacity retrofitting plans.' }
-      ]
-    },
-    {
-      id: 'management',
-      title: 'Project Management & Supervision',
-      icon: ClipboardCheck,
-      desc: 'On-site construction supervision, QA/QC audits, cost management, and rigorous safety controls.',
-      items: [
-        { name: 'Construction Supervision', details: 'On-site monitoring of materials and workmanship compliance to blueprints.' },
-        { name: 'Contract Administration', details: 'Managing payment certifications, site instructions, and variations claims.' },
-        { name: 'Quality Assurance & Quality Control', details: 'Testing concrete slump/cubes, rebar sizing checks, structural steel weld audits.' },
-        { name: 'Cost Management', details: 'Quantity surveying, bills of quantities preparation, project cash-flow tracking.' },
-        { name: 'Scheduling and planning', details: 'Creating Gantt chart timelines and resource allocation milestones.' },
-        { name: 'Health & Safety Management', details: 'Enforcing site safety protocols, PPE usage, and scaffold inspection checks.' }
-      ]
-    },
-    {
-      id: 'activities',
-      title: 'Additional Construction Activities',
-      icon: HardHat,
-      desc: 'Civil works, building execution, electrical installation, plumbing/HVAC services, and premium finishing works.',
-      items: [
-        { name: 'Construction of Buildings', details: 'General contracting for residential villas, apartments, commercial offices.' },
-        { name: 'Construction of Utility Projects', details: 'Site work, retaining walls construction, piping trenches, utility connection lines.' },
-        { name: 'Civil Engineering Projects', details: 'Constructing concrete road drainage structures, slope stabilization, culverts.' },
-        { name: 'Electrical Installation', details: 'Wiring buildings, installing distribution boards, light fixtures, earthing grids.' },
-        { name: 'Plumbing, Heat & Air-Conditioning', details: 'Drafting and piping clean water lines, sewer hookups, and HVAC vent plans.' },
-        { name: 'Building Completion and Finishing', details: 'Premium plastering, floor tiles laying, custom gypsum works, painting, exterior cladding.' }
-      ]
-    }
-  ];
-
   const [activeTab, setActiveTab] = useState(serviceCategories[0].id);
   const activeCategory = serviceCategories.find(cat => cat.id === activeTab);
+  const ActiveIcon = iconMap[activeCategory.iconName] || HardHat;
+
+  const headerBg = projectsList.find(p => p.id === 8)?.image || '';
 
   return (
     <div className="pt-16 font-sans bg-warm-bg text-slate-700">
       
       {/* Header (Keeps corporate blue theme for contrast) */}
       <section className="bg-navy text-white py-16 md:py-24 relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop')` }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-10" style={{ backgroundImage: `url('${headerBg}')` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/40" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
@@ -140,7 +69,7 @@ const Services = () => {
           {/* Vertical Tabs Sidebar */}
           <div className="w-full lg:w-1/3 flex flex-col space-y-2 border-r border-slate-200/50 pr-0 lg:pr-8">
             {serviceCategories.map((category) => {
-              const Icon = category.icon;
+              const Icon = iconMap[category.iconName] || HardHat;
               const isActive = category.id === activeTab;
               return (
                 <button
@@ -181,7 +110,7 @@ const Services = () => {
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-48 w-48 bg-accent/5 rounded-full filter blur-2xl opacity-40 pointer-events-none" />
                   <div className="relative z-10 flex items-center space-x-4">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-white shadow-lg">
-                      <activeCategory.icon className="h-4.5 w-4.5" />
+                      <ActiveIcon className="h-4.5 w-4.5" />
                     </div>
                     <h3 className="text-sm font-black uppercase tracking-wide text-white">
                       {activeCategory.title}

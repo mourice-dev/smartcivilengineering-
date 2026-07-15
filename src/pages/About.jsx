@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Compass, Target, Users, HardHat, Award, BookOpen } from 'lucide-react';
-import davidPortrait from '../images/PRO1471r.jpg';
+import { leadershipTeam, staffTeam } from '../data/teamData';
+import { projectsList } from '../data/projectsData';
 
 const About = () => {
   const coreValues = [
@@ -37,29 +38,42 @@ const About = () => {
     }
   ];
 
-  const team = [
-    {
-      name: 'David IYAKAREMYE',
-      role: 'Managing Director & Founder',
-      bio: 'David leads the structural design and corporate strategy of Smart Civil Engineering Works Ltd. Under his leadership since 2017, the firm has successfully delivered over 26+ key projects in residential and commercial infrastructure across Rwanda.',
-      avatar: davidPortrait
-    },
-    {
-      name: 'Valentine UMUHOZA',
-      role: 'Company Secretary',
-      bio: 'Valentine manages administrative compliance, contract administration, and client relations. She ensures that all company operations, audits, and tender documents conform strictly to regulatory standards.',
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop'
+  // Find a local project image for the header background
+  const headerBg = projectsList.find(p => p.id === 12)?.image || '';
+
+  const renderAvatar = (member) => {
+    if (member.avatar) {
+      return (
+        <img
+          src={member.avatar}
+          alt={member.name}
+          className="h-full w-full object-cover"
+        />
+      );
     }
-  ];
+
+    const initials = member.name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .substring(0, 2)
+      .toUpperCase();
+
+    return (
+      <div className="h-full w-full flex items-center justify-center bg-navy text-white font-sans font-black text-xl tracking-wider uppercase select-none">
+        {initials}
+      </div>
+    );
+  };
 
   return (
     <div className="pt-16 bg-warm-bg text-slate-700">
-      
+
       {/* Page Header (Keeps deep blue theme for high-end contrast) */}
       <section className="bg-navy text-white py-16 md:py-24 relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=80&w=1200&auto=format&fit=crop')` }} />
+        <div className="absolute inset-0 bg-cover bg-center opacity-15" style={{ backgroundImage: `url('${headerBg}')` }} />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/40" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-accent text-[10px] sm:text-xs font-sans font-bold tracking-widest uppercase bg-accent/15 px-4 py-1.5 rounded-full border border-accent/25">
             Established Since 2017
@@ -87,7 +101,7 @@ const About = () => {
               With a firm commitment to quality and innovation, the company delivers complete project development services — from initial feasibility studies and site investigations through detailed design, tender documentation, construction supervision, and project completion. Smart Civil Engineering Works Limited is fully licensed to operate in Rwanda, complying with all national legal, engineering, and tax obligations.
             </p>
           </div>
-          
+
           <div className="border-y border-slate-200/60 py-4 italic text-accent font-sans bg-accent/5 rounded-xl text-xs sm:text-sm font-bold leading-relaxed text-center max-w-2xl mx-auto px-6 mt-4">
             “Delivering Complete Engineering Solutions from Concept to Completion”
           </div>
@@ -98,7 +112,7 @@ const About = () => {
       <section className="bg-slate-100 py-12 md:py-16 border-y border-slate-200/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
+
             {/* Vision */}
             <div className="bg-white border border-slate-200/50 p-6 md:p-8 rounded-2xl shadow-md relative overflow-hidden group">
               <div className="absolute top-0 right-0 h-1.5 w-full bg-accent" />
@@ -181,14 +195,10 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            {team.map((member, idx) => (
-              <div key={idx} className="bg-white border border-slate-200/50 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center space-y-6 hover:border-accent/20 transition-all duration-300 shadow-md">
-                <div className="h-28 w-28 rounded-full overflow-hidden bg-slate-100 shadow-md border-2 border-white">
-                  <img 
-                    src={member.avatar} 
-                    alt={member.name} 
-                    className="h-full w-full object-cover"
-                  />
+            {leadershipTeam.map((member, idx) => (
+              <div key={idx} className="bg-white border border-slate-200/50 rounded-2xl p-6 md:p-8 flex flex-col items-center text-center space-y-6 hover:border-accent/20 transition-all duration-300 shadow-md w-full">
+                <div className="h-28 w-28 rounded-full overflow-hidden bg-slate-100 shadow-md border-2 border-white shrink-0">
+                  {renderAvatar(member)}
                 </div>
                 <div className="space-y-1">
                   <h3 className="text-base sm:text-lg font-black text-navy uppercase">{member.name}</h3>
@@ -199,6 +209,51 @@ const About = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Staff / Engineering Team Section */}
+      <section className="bg-warm-bg text-slate-700 py-12 md:py-16 border-t border-slate-200/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
+          <div className="text-center max-w-3xl mx-auto mb-10 space-y-4">
+            <span className="text-accent text-[10px] sm:text-xs font-bold tracking-widest uppercase bg-accent/15 px-3 py-1 rounded-full inline-block">
+              Experts
+            </span>
+            <h2 className="text-2xl md:text-3xl font-serif font-black uppercase text-navy">
+              Our Professional Staff
+            </h2>
+            <p className="text-slate-500 text-xs sm:text-sm font-medium">
+              The engineers, architects, surveyors, and technicians delivering high quality standards on site.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {staffTeam.map((member, idx) => {
+              const initials = member.name
+                .split(' ')
+                .map((n) => n[0])
+                .join('')
+                .substring(0, 2)
+                .toUpperCase();
+              return (
+                <div key={idx} className="bg-white border border-slate-200/50 rounded-2xl p-6 flex flex-col space-y-4 hover:border-accent/20 hover:shadow-lg transition-all duration-300 shadow-md">
+                  <div className="flex items-center space-x-4">
+                    <div className="h-14 w-14 rounded-xl overflow-hidden bg-navy text-white font-black text-base flex items-center justify-center border border-navy/10 shrink-0 select-none">
+                      {initials}
+                    </div>
+                    <div className="space-y-0.5">
+                      <h3 className="text-sm sm:text-base font-black text-navy uppercase leading-tight">{member.name}</h3>
+                      <span className="text-[10px] text-accent font-bold uppercase tracking-wider block">{member.role}</span>
+                      <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block bg-slate-50 border border-slate-100 rounded-md px-1.5 py-0.5 w-max">{member.department}</span>
+                    </div>
+                  </div>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                    {member.bio}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
